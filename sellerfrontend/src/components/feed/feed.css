@@ -1,0 +1,14 @@
+.feedContainer{
+    display: flex;  
+    padding-top: 70px;
+}
+.leftBarFeed{
+    display: flex;
+    flex: 5;
+   
+}
+.rightBarFeed{
+    display: flex;
+    flex:2.5;
+}
+

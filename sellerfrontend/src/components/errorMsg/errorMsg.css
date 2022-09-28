@@ -1,0 +1,39 @@
+.hideError{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    background-color: #2f5174;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size: 20px;
+    transition: height;
+    animation: openModal 1s alternate ;
+    
+}
+@keyframes openModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.showError {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    background-color: #2f5174;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size: 20px;
+    transition: height;
+    animation: openModal 1s alternate ;
+}

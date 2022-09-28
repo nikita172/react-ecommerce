@@ -1,0 +1,38 @@
+.rightBarContainer{    
+    flex:5;   
+    position: relative;
+    top:80px;
+}
+.sortBySection{
+   
+    position: absolute;
+    top:65px;
+    right:40px;
+    border: 1px solid #d2d0d0;
+    
+    
+}
+.sortBy{
+    outline: none;
+    border: none;
+    padding:5px 10px;
+}
+.itemsShowcase{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+   
+    
+    margin-top:100px;
+}
+.closetLoader{
+    position: absolute;
+    top:50%;
+    left:50%;
+}
+.emptyMsg{
+  top:30%;
+    position: fixed;
+    left: 50%;
+}
+

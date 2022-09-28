@@ -1,0 +1,12 @@
+.orderPlaced{
+    font-size: 20px;
+    color: gray;
+}
+.goToHomeBtn{
+    background-color: white;
+    color:#FF3366;
+    border:1px solid #FF3366;
+    font-size: 12px;
+    padding: 5px 10px;
+    margin-top: 15px;
+}

@@ -1,0 +1,105 @@
+.rightBarFeedContainer{
+    display: flex;
+    flex: 3;
+    justify-content: space-around;
+    background: rgb(232, 233, 234);
+    overflow-y: scroll;
+    position: sticky;
+    height: calc(100vh - 90px);
+    padding:10px 25px;
+    font-size: 20px;
+    
+   
+   
+   
+}
+.hideSize{
+    display: none;
+}
+
+.header{   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.crossButton {
+    margin:0px;
+    padding: 3px 7px;
+    color: black;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #d1c8c8;
+    font-weight: 600;
+    font-size: large;
+    
+}
+.productDetailheading{
+    margin-bottom: 10px;
+    margin-top: 10px;
+  
+}
+#productDetailform div{
+    margin-bottom: 15px;
+}
+.productInputs{
+    width:calc(100% - 12px);
+    height: 20px;
+    border: 1px solid rgb(165, 162, 162);
+    padding:5px;
+}
+.productInputs:focus{
+    background: white;
+    height:20px
+}
+.productType div{
+    display: flex;
+    margin-bottom: 5px;
+
+}
+
+
+
+#cross-button{
+    border-radius: 50%;
+    background-color: white;
+    padding:3px;
+    height: 20px;
+    
+}
+.details label{
+    padding-bottom:5px;
+}
+.userDetail{
+    padding:5px;
+    font-size: 13px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(165, 162, 162);
+    width:100%;
+    height: 35px;
+    
+    
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 5px;
+}
+
+#addButton{
+    margin-top: 15px;
+    background-color: rgb(15, 15, 192);
+    padding:7px 15px;
+}
+.size{
+    font-size: 14px;
+    padding-top: 4px;
+}
+.sizeBox{
+    padding:8px;
+    border: 1px solid #d1c8c8;
+    border-radius: 4px;
+    margin: 8px;
+}

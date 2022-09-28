@@ -1,0 +1,245 @@
+.addressWrapper{
+    display: flex;
+    justify-content: center;
+}
+.addressWrapperLeft{
+    display: flex;
+    flex:1;
+    justify-content: flex-end;
+    min-height: calc(100vh - 81px);
+   
+    border-right: 0.5px solid #efececac;
+    
+}
+.addressDetailLeft{
+    padding-top: 30px;
+    min-width: 500px;
+    margin-right: 20px;
+   
+}
+.address{
+    display: flex;
+    align-items: start;
+}
+.addressHead{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.addnewAddBtn{
+    background: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-weight: 600;
+    color: rgb(69, 50, 50);
+    
+}
+.address{
+  
+    margin-top: 20px;
+    padding:10px 15px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px rgb(238, 236, 236);
+}
+.address:hover{
+    cursor: pointer;
+}
+.userName{
+    padding-bottom: 15px;
+}
+.user{
+    padding-bottom: 4px;
+    color: rgb(87, 75, 75);
+    font-weight: 300;
+    font-size: 14px;
+}
+.userMobile{
+    display: flex;
+    align-items: center;
+    padding: 5px 0px;
+}
+.mobile{
+    font-size: 13.5px;
+}
+.payNote{
+    margin: 10px 15px;
+    color: rgb(88, 66, 66);
+}
+.note{
+    font-size: 14px;
+    
+}
+.editBtn{
+    margin-left: 15px;
+}
+.addNewAddress{
+    margin-top: 10px;
+    padding:30px 15px;
+    border:1px dashed gray;
+    font-size: 17px;
+    color: #FF3366;
+    border-radius: 3px;
+    margin-bottom: 30px;
+
+}
+.AddNewBtn{
+    background: white;
+    color: #FF3366;
+    font-weight: 600;
+}
+input.selectDefault{
+    margin-right: 5px;
+}
+
+.addAddressContainer{
+    display: none;
+    justify-content: center;
+   
+}
+@keyframes openModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.show{
+    display: flex;
+    position: fixed;
+   align-items: center;
+   justify-content: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    animation: openModal 0.25s ;
+   
+}
+.addAddressWrapper{
+   margin-top: 20px;
+   border: 1px solid rgb(222, 218, 218);
+   width: 400px;
+   border-radius: 5px; 
+   
+   background: white;
+  
+   
+   
+}
+.mainAdd{
+    overflow:scroll;
+    height: calc(100% - 230px);
+    position: absolute;
+    top:90px;
+    width: 400px;
+    background: white;
+    
+}
+.newAddress{
+   border-top-left-radius:5px ;
+   border-top-right-radius:5px ;
+
+    z-index: 1;
+    position: fixed;
+    top:25px;
+    background: white;
+    width: 380px;
+    display: flex;   
+    padding: 10px;
+    font-size: 19px;
+    border-bottom: 1px solid rgb(222, 218, 218);
+    align-items: center;
+    justify-content: space-between;
+}
+.addressCloseBtn{
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    font-weight: normal;
+   
+}
+.newAddressDetails{
+    padding: 0px 10px;
+}
+.contactDetails{
+    padding: 10px;
+}
+.newAddressDetails h5{
+font-weight: 500;
+    padding:10px;
+    
+}
+.contactDetails h5{
+    font-weight: 500;
+    padding:10px;
+    
+}
+.addressInputs{
+    margin: 10px auto;
+    width: 87%;
+}
+.cityDis{
+    display: flex;
+    justify-content: space-between;
+
+}
+.cityDis input{
+    width: 130px;
+    
+}
+.saveAddress{
+    padding: 10px;
+}
+.saveAddress h5{
+    font-weight: 500;
+    padding:10px;
+}
+.selectBtn{
+    background: white;
+    color: black;
+    border: 1px solid black;
+    padding: 5px 14px;
+    font-size: 12px;
+    border-radius: 15px;
+    margin-right: 14px;
+}
+.default{
+    display: flex;
+    align-items: center;
+    padding: 15px 10px 25px 10px;
+}
+input.defaultTick{
+    width: 17px;
+    height: 17px;
+}
+.defaultTick{
+    margin-right: 8px;
+}
+.addnewDiv{
+    position: fixed;
+    bottom: 95px;
+   width: 400px;
+   background: white;
+    box-shadow: 1px 2px 10px rgb(210, 209, 209);
+   border-bottom-left-radius:5px ;
+   border-bottom-right-radius:5px ;
+
+
+}
+.addNewAddressBtn{
+    font-size: 14px;
+    width: calc(100% - 14px);
+    margin: 7px;
+    font-weight: 500;
+    padding:15px 40px;
+  
+    background: #FF3366;
+  
+}
+.addModal{
+    background: transparent;
+}

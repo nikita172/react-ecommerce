@@ -1,0 +1,42 @@
+.bagTopContainer{
+    height: 80px; 
+    border-bottom: 0.5px solid #efececac;
+    display: flex;
+    
+
+}
+.bagTop{
+    display: flex;
+    align-items: center;
+    padding: 0px 60px;
+    width: 100%;
+    
+}
+.bagTopLeft, .bagTopRight, .bagTopMiddle{
+    display: flex;
+    flex: 2;
+    
+} 
+.bagTopLeft{
+    display: flex;
+    justify-content: flex-start;
+}
+.bagTopMiddle{
+    display: flex;
+    justify-content: center;
+    color: #171414ac;
+    letter-spacing: 2.5px;
+    font-size: 14px;
+}
+.bagTopRight{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    letter-spacing: 2px;
+    color: #0f0a0aac;
+    font-size: 14px;
+}
+.decor{
+    color: green;
+    border-bottom: 2px solid green;
+}
