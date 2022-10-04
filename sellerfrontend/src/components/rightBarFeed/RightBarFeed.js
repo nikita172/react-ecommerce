@@ -4,22 +4,23 @@ import axios from "axios";
 import { useState } from "react"
 export default function RightBarFeed({ productOpen, setProductOpen }) {
 
-    const [categories,setCategories] = useState("")
-    const size = !(categories==="HomeLiving" || categories==="Beauty")
+    const [categories, setCategories] = useState("")
+    const size = !(categories === "HomeLiving" || categories === "Beauty")
     const closeProductDetail = () => {
         if (productOpen === true) {
             setProductOpen(false)
         }
     }
-   
+
     const handleSubmitForm = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const userEmail = JSON.parse(localStorage.getItem('user'))
-        formData.append("email", userEmail[1])    
-             
+        formData.append("email", userEmail[1])
+
         try {
-            await axios.post("/admin/product", formData)  
+            await axios.post("/admin/product", formData)
+            window.location.reload(true)
         } catch (err) {
             console.log(err)
         }
@@ -38,7 +39,7 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                     <div className="productType">
                         <h5>Select Category*</h5>
                         <div className="details">
-                            <select name="productType" id="productType" className="userDetail " required onChange={(e)=>setCategories(e.target.value)}>
+                            <select name="productType" id="productType" className="userDetail " required onChange={(e) => setCategories(e.target.value)}>
                                 <option value="" disabled selected hidden>Select Product Type</option>
                                 <option value="Men">Men</option>
                                 <option value="Women">Women</option>
@@ -59,7 +60,7 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                         <input className='productInputs' type="text" name="companyName" placeholder="Company Name" required />
                     </div>
 
-                    
+
 
                     <div className="desc">
                         <h5>About Product*</h5>
@@ -71,18 +72,18 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                         <input className='productInputs' type="text" name="aboutProductLong" placeholder="More Desc" required />
                     </div>
 
-                    <div className={size? "sizes":"hideSize" }  >
+                    <div className={size ? "sizes" : "hideSize"}  >
                         <h5>Sizes*</h5>
-                        <div className='sizeBox'>                        
-                        <p className='size'>Product of S Size</p>
-                        <input className='productInputs sizeInput' type="number" name="sizesQuan" placeholder="S Size"  />
-                        <p className='size'>Product of M Size</p>
-                        <input className='productInputs sizeInput' type="number" name="sizesQuan" placeholder="M Size"  />
-                        <p className='size'>Product of L Size</p>
-                        <input className='productInputs sizeInput' type="number" name="sizesQuan" placeholder="L Size"  />
-                        <p className='size'>Product of  XL Size</p>
-                        <input className='productInputs sizeInput' type="number" name="sizesQuan" placeholder="XL Size"  />
-                    </div>
+                        <div className='sizeBox'>
+                            <p className='size'>Product of S Size</p>
+                            <input className='productInputs sizeInput' type="number" name="sizesQuan" placeholder="S Size" />
+                            <p className='size'>Product of M Size</p>
+                            <input className='productInputs sizeInput' type="number" name="sizesQuan" placeholder="M Size" />
+                            <p className='size'>Product of L Size</p>
+                            <input className='productInputs sizeInput' type="number" name="sizesQuan" placeholder="L Size" />
+                            <p className='size'>Product of  XL Size</p>
+                            <input className='productInputs sizeInput' type="number" name="sizesQuan" placeholder="XL Size" />
+                        </div>
                     </div>
 
 
@@ -124,7 +125,7 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                         <h5>MRP*</h5>
                         <input className='productInputs' type="number" name="mrp" placeholder="Price" required />
                     </div>
-                     
+
                     <div className="discount">
                         <h5>Discount in %*</h5>
                         <input className='productInputs' type="number" name="discount" placeholder="Discount" required />
@@ -134,19 +135,19 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                         <input className='productInputs' type="number" name="sellingPrice" placeholder="Selling Price" required />
                     </div>
 
-                    
+
 
                     <div className="addPhotos" >
                         <h5>Add Photos of Product*</h5>
-                        <input type="file" name="file[]" required  accept=".jpeg, .png, .jpg ,.avif , .webp"
+                        <input type="file" name="file[]" required accept=".jpeg, .png, .jpg ,.avif , .webp, .jfif"
                         />
-                        <input type="file" name="file[]" accept=".jpeg, .png, .jpg ,.avif , .webp"
+                        <input type="file" name="file[]" accept=".jpeg, .png, .jpg ,.avif , .webp , .jfif"
                         />
-                        <input type="file" name="file[]" accept=".jpeg, .png, .jpg ,.avif , .webp"
+                        <input type="file" name="file[]" accept=".jpeg, .png, .jpg ,.avif , .webp , .jfif"
                         />
-                        <input type="file" name="file[]" accept=".jpeg, .png, .jpg ,.avif , .webp"
+                        <input type="file" name="file[]" accept=".jpeg, .png, .jpg ,.avif , .webp , .jfif"
                         />
-                        <input type="file" name="file[]" accept=".jpeg, .png, .jpg ,.avif , .webp"
+                        <input type="file" name="file[]" accept=".jpeg, .png, .jpg ,.avif , .webp , .jfif"
                         />
 
                     </div>

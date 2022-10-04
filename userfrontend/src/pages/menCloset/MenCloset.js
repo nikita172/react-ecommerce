@@ -8,29 +8,22 @@ import "./menCloset.css"
 export default function MenCloset() {
     const [loading, setLoading] = useState(true)
     const [products, setProducts] = useState([])
-    const men="Men";
+    const men = "Men";
     useEffect(() => {
-        const fetchProducts = async () => {          
+        const fetchProducts = async () => {
             const res = await axios.get("/admin/men/products")
-            const data = await res.data;
-            setProducts(data)
+            setProducts(res.data)
             setLoading(false)
         }
         fetchProducts()
     }, [])
-  console.log(products)
-  
     return (
         <>
-            
-            <TopBar products={products} setProducts={setProducts} type={men}/>
+            <TopBar products={products} setProducts={setProducts} type={men} />
             <div className='menClosetContainer'>
-                <LeftBar setProducts={setProducts} products={products} type={men} />
-                <RightBar loading={loading} products={products} />
-
+                <LeftBar setProducts={setProducts} products={products} type={men} loading={loading} setLoading={setLoading} />
+                <RightBar loading={loading} products={products} setProducts={setProducts} setLoading={setLoading} />
             </div>
-
-
         </>
     )
 }

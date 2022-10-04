@@ -1,0 +1,22 @@
+.orderContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 90px;
+}
+
+.orderEmptyMsg{
+    display: flex;
+    align-items: center;
+   justify-content: center;
+    flex-direction: column;
+    
+}
+.orderEmpty{
+    display: flex;
+   padding-top: 200px;
+}
+.orderWrapper{
+    border-left: 0.5px solid #efececac;
+    padding-left: 15px;
+}

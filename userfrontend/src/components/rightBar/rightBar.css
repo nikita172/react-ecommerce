@@ -3,14 +3,11 @@
     position: relative;
     top:80px;
 }
-.sortBySection{
-   
+.sortBySection{  
     position: absolute;
     top:65px;
     right:40px;
-    border: 1px solid #d2d0d0;
-    
-    
+    border: 1px solid #d2d0d0;   
 }
 .sortBy{
     outline: none;

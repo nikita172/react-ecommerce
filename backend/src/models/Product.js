@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema(
 
     quantity: {
       type: Number,
-      required: true,
+      required: false,
     },
     sells: {
       type: Number,
@@ -38,7 +38,7 @@ const productSchema = new mongoose.Schema(
     },
     remaining: {
       type: Number,
-      required: true,
+      required: false,
     },
     aboutProductShort: {
       type: String,
@@ -50,31 +50,31 @@ const productSchema = new mongoose.Schema(
     },
     style: {
       type: String,
-      required: true,      
+      required: true,
     },
     sleeve: {
       type: String,
-      required: true,      
+      required: true,
     },
     color: {
       type: String,
-      required: true,      
-    }, 
+      required: true,
+    },
     print: {
       type: String,
-      required: true,      
+      required: true,
     },
     fit: {
       type: String,
-      required: true,      
+      required: true,
     },
     sizeAndFit: {
       type: String,
-      required: true,      
+      required: true,
     },
     materialAndCare: {
       type: String,
-      required: true,      
+      required: true,
     },
     productType: {
       type: String,

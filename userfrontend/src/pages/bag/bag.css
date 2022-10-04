@@ -181,3 +181,8 @@
     border: 1px solid #FF3366;
     border-radius: 4px;
 }
+.loader{
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+}

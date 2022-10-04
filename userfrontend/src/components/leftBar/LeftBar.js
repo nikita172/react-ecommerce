@@ -3,22 +3,24 @@ import "./leftBar.css"
 import axios from "axios";
 import { useEffect, useState } from 'react'
 
-export default function LeftBar({ products,type, setProducts }) {
+export default function LeftBar({ products, type, setProducts, setLoading, loading }) {
     const [brands, setBrands] = useState([])
-
-    const [filterProducts, setFilterProducts] = useState([])
-
-console.log(brands)
-  useEffect(()=>{
-        const filterProducts = async()=>{
-            const params= new URLSearchParams();
+    const [colors, setColors] = useState([])
+    useEffect(() => {
+        const filterProducts = async () => {
+            const params = new URLSearchParams();
             params.append("brand", brands)
-            console.log(params.toString())
+            params.append("type", type)
+            params.append("color", colors)
+
+            setLoading(true)
             const res = await axios.get(`/admin/men/products/filter/?` + params);
             setProducts(res.data)
+            setLoading(false)
         }
         filterProducts()
-    },[brands]) 
+    }, [brands, colors])
+
     return (
         <div className='leftBarContainer'>
             <div className="leftBarWrapper">
@@ -38,7 +40,7 @@ console.log(brands)
                             </h4>
 
 
-                            <label className='labels' for="Roadster" onChange={(e) =>
+                            <label className='labels' htmlFor="Roadster" onChange={(e) =>
                                 brands && brands.includes("Roadster")
                                     ? setBrands(brands.filter(e => e != "Roadster"))
                                     : setBrands([...brands, e.target.value])
@@ -48,7 +50,7 @@ console.log(brands)
                             </label>
 
 
-                            <label className='labels' for="Adidas" onChange={(e) =>
+                            <label className='labels' htmlFor="Adidas" onChange={(e) =>
                                 brands && brands.includes("Adidas")
                                     ? setBrands(brands.filter(e => e != "Adidas"))
                                     : setBrands([...brands, e.target.value])
@@ -58,7 +60,7 @@ console.log(brands)
                             </label>
 
 
-                            <label className='labels' for="Puma" onChange={(e) =>
+                            <label className='labels' htmlFor="Puma" onChange={(e) =>
                                 brands && brands.includes("Puma")
                                     ? setBrands(brands.filter(e => e != "Puma"))
                                     : setBrands([...brands, e.target.value])
@@ -68,17 +70,17 @@ console.log(brands)
                             </label>
 
 
-                            <label className='labels' for="Nike"  onChange={(e) =>
+                            <label className='labels' htmlFor="Nike" onChange={(e) =>
                                 brands && brands.includes("Nike")
                                     ? setBrands(brands.filter(e => e != "Nike"))
                                     : setBrands([...brands, e.target.value])
                             }>
-                                <input type="checkbox"name='Nike' value="Nike" />
+                                <input type="checkbox" name='Nike' value="Nike" />
                                 Nike
                             </label>
 
 
-                            <label className='labels' for="HRX"  onChange={(e) =>
+                            <label className='labels' htmlFor="HRX" onChange={(e) =>
                                 brands && brands.includes("HRX")
                                     ? setBrands(brands.filter(e => e != "HRX"))
                                     : setBrands([...brands, e.target.value])
@@ -91,69 +93,86 @@ console.log(brands)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
                         <div className="filterItem">
-                            <h4 className="categoriesTitle">
+                            <h4 className="categoriesTitle" >
                                 Color
                             </h4>
-                            <label className='labels'>
-                                <input type="checkbox" />
-                                red
+
+
+                            <label className='labels' htmlFor="Red" onChange={(e) =>
+                                colors && colors.includes("Red")
+                                    ? setColors(colors.filter(e => e != "Red"))
+                                    : setColors([...colors, e.target.value])}>
+                                <input type="checkbox" name="Red" value="Red" />
+                                Red
                             </label>
-                            <label className='labels'>
-                                <input type="checkbox" />
-                                Kalt
+
+                            <label className='labels' htmlFor="White" onChange={(e) =>
+                                colors && colors.includes("White")
+                                    ? setColors(colors.filter(e => e != "White"))
+                                    : setColors([...colors, e.target.value])}>
+                                <input type="checkbox" name="White" value="White" />
+                                White
                             </label>
-                            <label className='labels'>
-                                <input type="checkbox" />
-                                Puma
+
+                            <label className='labels' htmlFor="Black" onChange={(e) =>
+                                colors && colors.includes("Black")
+                                    ? setColors(colors.filter(e => e != "Black"))
+                                    : setColors([...colors, e.target.value])}>
+                                <input type="checkbox" name="Black" value="Black" />
+                                Black
                             </label>
-                            <label className='labels'>
-                                <input type="checkbox" />
-                                Nike
+
+                            <label className='labels' htmlFor="Blue" onChange={(e) =>
+                                colors && colors.includes("Blue")
+                                    ? setColors(colors.filter(e => e != "Blue"))
+                                    : setColors([...colors, e.target.value])}>
+                                <input type="checkbox" name="Blue" value="Blue" />
+                                Blue
                             </label>
-                            <label className='labels'>
-                                <input type="checkbox" />
-                                HRX
+
+                            <label className='labels' htmlFor="Pink" onChange={(e) =>
+                                colors && colors.includes("Pink")
+                                    ? setColors(colors.filter(e => e != "Pink"))
+                                    : setColors([...colors, e.target.value])}>
+                                <input type="checkbox" name="Pink" value="Pink" />
+                                Pink
                             </label>
+
+                            <label className='labels' htmlFor="Green" onChange={(e) =>
+                                colors && colors.includes("Green")
+                                    ? setColors(colors.filter(e => e != "Green"))
+                                    : setColors([...colors, e.target.value])}>
+                                <input type="checkbox" name="Green" value="Green" />
+                                Green
+                            </label>
+
+                            <label className='labels' htmlFor="Orange" onChange={(e) =>
+                                colors && colors.includes("Orange")
+                                    ? setColors(colors.filter(e => e != "Orange"))
+                                    : setColors([...colors, e.target.value])}>
+                                <input type="checkbox" name="Orange" value="Orange" />
+                                Orange
+                            </label>
+                            <label className='labels' htmlFor="Yellow" onChange={(e) =>
+                                colors && colors.includes("Yellow")
+                                    ? setColors(colors.filter(e => e != "Yellow"))
+                                    : setColors([...colors, e.target.value])}>
+                                <input type="checkbox" name="Yellow" value="Yellow" />
+                                Yellow
+                            </label>
+
+                            <label className='labels' htmlFor="Brown" onChange={(e) =>
+                                colors && colors.includes("Brown")
+                                    ? setColors(colors.filter(e => e != "Brown"))
+                                    : setColors([...colors, e.target.value])}>
+                                <input type="checkbox" name="Brown" value="Brown" />
+                                Brown
+                            </label>
+
                         </div>
 
-                        <div className="filterItem">
-                            <h4 className="categoriesTitle">
-                                Brands
-                            </h4>
-                            <label className='labels' >
-                                <input type="checkbox" />
-                                Roadster
-                            </label>
-                            <label className='labels'>
-                                <input type="checkbox" />
-                                Kalt
-                            </label>
-                            <label className='labels'>
-                                <input type="checkbox" />
-                                Puma
-                            </label>
-                            <label className='labels'>
-                                <input type="checkbox" />
-                                Nike
-                            </label>
-                            <label className='labels'>
-                                <input type="checkbox" />
-                                HRX
-                            </label>
-                        </div>
+
                     </div>
                 </div>
             </div>

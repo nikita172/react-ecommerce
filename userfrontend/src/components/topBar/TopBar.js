@@ -13,7 +13,7 @@ export default function TopBar({ products, setProducts, type = "all" }) {
   const [name, setName] = useState({});
   const closeMenuHandler = () => {
     setOpenModal(false)
-    console.log("dom re-renderd")
+
   }
   useEffect(() => {
     document.addEventListener("click", closeMenuHandler)
@@ -117,7 +117,9 @@ export default function TopBar({ products, setProducts, type = "all" }) {
 
           <p className='helloTag'>Hello {name && name.userName} !</p>
           <ul className='profileItems'>
-            <li className='listItem'>Orders</li>
+            <Link to="/orders" className="links" style={{ color: "black" }}>
+              <li className='listItem'>Orders</li>
+            </Link>
 
             <Link to="/wishlist" style={{ textDecoration: "none", color: "black" }}>
               <li className='listItem'>Wishlist</li>

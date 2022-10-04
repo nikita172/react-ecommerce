@@ -2,17 +2,21 @@ import React from 'react'
 import AddressRightBar from '../../components/addressRightBar/AddressRightBar'
 import BagTopBar from '../../components/bagTopBar/BagTopBar'
 import "./address.css"
-import { useState, useEffect ,useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { CircularProgress } from "@material-ui/core"
 import { Clear } from '@material-ui/icons';
 import axios from "axios"
+import { Link } from "react-router-dom"
+import { CheckCircleOutline } from '@material-ui/icons';
 
 export default function Address() {
     const [loading, setLoading] = useState(false);
+
     const [openModal, setOpenModal] = useState(false)
     const [bagItem, setBagItem] = useState([])
     const [address, setAddress] = useState([])
     const formRef = useRef({})
+    const [showOrderPlaced, setShowOrderPlaced] = useState(false)
     const [inputState, setInputState] = useState({
         name: "",
         mobile: "",
@@ -24,13 +28,17 @@ export default function Address() {
         saveAddress: "",
         email: ""
     })
+
+    console.log(showOrderPlaced)
     const user = JSON.parse(localStorage.getItem("user"))
     const userEmail = user[1]
     let change = 0;
     useEffect(() => {
         const fetchBag = async () => {
+
             const res = await axios.get(`/user/bagitem/${userEmail}`)
             setBagItem(res.data)
+
         }
         fetchBag()
     }, [change]
@@ -113,11 +121,13 @@ export default function Address() {
         setInputState(address)
         setOpenModal(true)
     }
-console.log(formRef.current.add)
+    console.log(formRef.current.add)
     return (
         <>
-            <div className={openModal ? "addModal" : 'addressContainer'}>
+
+            <div className={openModal ? "addModal" : showOrderPlaced ? "hideAddress" : 'addressContainer'}>
                 <BagTopBar />
+
 
                 <div className='addressWrapper'>
                     <div className="addressWrapperLeft">
@@ -155,8 +165,9 @@ console.log(formRef.current.add)
                             </div>
                         </div>
                     </div>
-                    <AddressRightBar bagItem={bagItem} form={formRef}/>
+                    <AddressRightBar bagItem={bagItem} form={formRef} email={userEmail} setShowOrderPlaced={setShowOrderPlaced} />
                 </div>
+
             </div>
             <div className={openModal ? "show" : 'addAddressContainer'}>
                 <div className="addAddressWrapper">
@@ -186,8 +197,8 @@ console.log(formRef.current.add)
                                 <h5>SAVE ADDRESS AS</h5>
                                 <select name="saveAddress" id="saveAddress" for="p" onChange={onInputChange} required value={inputState.saveAddress}>
                                     <option value="" disabled selected hidden>save address as</option>
-                                    <option value="home" name="p">Men</option>
-                                    <option value="work" name="p">Women</option>
+                                    <option value="home" name="p">Home</option>
+                                    <option value="work" name="p">Office</option>
                                 </select>
                             </div>
                         </div>
@@ -199,6 +210,19 @@ console.log(formRef.current.add)
                     </form>
                 </div>
             </div>
+
+
+            <div className={showOrderPlaced ? "emptyBar" : "hideOrderComfirmed"}>
+                <CheckCircleOutline style={{ color: "rgb(7, 199, 7)", fontSize: "150px" }} />
+                <p className='orderPlaced'>Order Placed !</p>
+                <Link className="links" to="/">
+                    <button className='goToHomeBtn'>RETURN TO HOME </button>
+                </Link>
+                <Link className="links" to="/orders">
+                    <button className='goToHomeBtn'>CHECK YOUR ORDERS </button>
+                </Link>
+            </div>
+
         </>
     )
 }

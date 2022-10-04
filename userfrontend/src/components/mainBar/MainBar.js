@@ -100,7 +100,7 @@ export default function MainBar() {
                             </div>
                         </div>
                         {loading ?
-                            <div className='loader'>
+                            <div className='loaderHome'>
                                 <CircularProgress color="white" size="20px" />
                             </div> :
                             <div className="headerBottom">
@@ -134,7 +134,7 @@ export default function MainBar() {
                             </div>
                         </div>
                         {loading ?
-                            <div className='loader'>
+                            <div className='loaderHome'>
                                 <CircularProgress color="white" size="20px" />
                             </div> :
                             <div className="headerBottom">
@@ -170,7 +170,7 @@ export default function MainBar() {
                             </div>
                         </div>
                         {loading ?
-                            <div className='loader'>
+                            <div className='loaderHome'>
                                 <CircularProgress color="white" size="20px" />
                             </div> :
                             <div className="headerBottom">
@@ -203,7 +203,7 @@ export default function MainBar() {
                             </div>
                         </div>
                         {loading ?
-                            <div className='loader'>
+                            <div className='loaderHome'>
                                 <CircularProgress color="white" size="20px" />
                             </div> :
                             <div className="headerBottom">
@@ -236,7 +236,7 @@ export default function MainBar() {
                             </div>
                         </div>
                         {loading ?
-                            <div className='loader'>
+                            <div className='loaderHome'>
                                 <CircularProgress color="white" size="20px" />
                             </div> :
                             <div className="headerBottom">
