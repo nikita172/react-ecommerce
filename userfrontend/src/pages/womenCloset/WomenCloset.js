@@ -8,14 +8,12 @@ export default function WomenCloset() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const women = "Women"
-
   useEffect(() => {
     const fetchProducts = async () => {
       const res = await axios.get("/admin/women/products")
       const data = await res.data;
       setProducts(data)
       setLoading(false)
-
     }
     fetchProducts()
   }, [])
@@ -25,10 +23,7 @@ export default function WomenCloset() {
       <div className='menClosetContainer'>
         <LeftBar products={products} type={women} setProducts={setProducts} />
         <RightBar loading={loading} products={products} setProducts={setProducts} />
-
       </div>
-
-
     </>
   )
 }

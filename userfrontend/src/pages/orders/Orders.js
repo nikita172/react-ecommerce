@@ -12,7 +12,6 @@ export default function Orders() {
     const userEmail = JSON.parse(localStorage.getItem('user'))
     const [change, setChange] = useState(false)
     const email = userEmail[1]
-
     useEffect(() => {
         const fetchOrders = async () => {
             isfetching(true)
@@ -21,14 +20,11 @@ export default function Orders() {
             isfetching(false)
         }
         fetchOrders()
-
     }, [change, email])
-
     const handleDeleteClick = async (id) => {
         await axios.delete(`/user/delete/order/${id}`)
         setChange(!change)
     }
-
     return (
         <>
             <HomeTopBar />

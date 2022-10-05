@@ -6,17 +6,14 @@ import "./register.css"
 import ErrorMsg from '../../components/errorMsg/ErrorMsg';
 import { Link } from "react-router-dom"
 export default function Register() {
-
     const email = useRef();
     const username = useRef();
     const brandName = useRef();
     const password = useRef();
     const confirmPassword = useRef();
-
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState("");
     const [isError, setIsError] = useState(false)
-
     const handleClick = async (e) => {
         setIsFetching(true)
         e.preventDefault()
@@ -32,7 +29,6 @@ export default function Register() {
             }
             try {
                 const res = await axios.post("/admin/signup", user)
-                console.log(res)
                 if (!res.data.status) {
                     setIsError(true)
                     setTimeout(() => {
@@ -41,9 +37,8 @@ export default function Register() {
                 }
                 else {
                     const info = [res.data.token, res.data.user.email]
-                    localStorage.setItem('user', JSON.stringify(info))
+                    localStorage.setItem('admin', JSON.stringify(info))
                     window.location.reload(true);
-
                 }
                 setError(res.data.message)
             }
@@ -70,7 +65,6 @@ export default function Register() {
                         <AlternateEmail className='icons' />
                         <input type="email" name="email" required placeholder="Email" ref={email} />
                     </div>
-
                     <div className="inputGroup inputPassword">
                         <Lock className='icons' />
                         <input type="password" required name="password" placeholder="Password" ref={password} minLength='6' />
@@ -83,20 +77,14 @@ export default function Register() {
                         <button type="submit" className="primary" id="loginBtn">
                             {isFetching ? <CircularProgress color="white" size="12px" /> : "Create a New Account"}
                         </button>
-                        <Link to="/login" style={{ textDecoration: "none" }}>
+                        <Link to="/admin/login" style={{ textDecoration: "none" }}>
                             <button className="secondary" id="navigate-signup" type="button">LogIn</button>
                         </Link>
-
-
-
                     </div>
                 </form>
             </div >
             {isError ? <ErrorMsg error={error} /> : null
             }
-
-
-
         </section >
     )
 }

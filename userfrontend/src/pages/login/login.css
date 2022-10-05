@@ -5,29 +5,21 @@
 }
 .loginSection{
     display: flex;
-    flex-direction: column;
-   
+    flex-direction: column;  
 }
 #loginContainer {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    width: 100vw;
-   
-   
+    width: 100vw;  
 }
-
-.loginContainerLeft{
-    
-   
+.loginContainerLeft{   
     display: flex;
     flex: 1;
     justify-content: center;
     position: fixed;
-    left:75px;
-    
-   
+    left:75px;   
 }
 .loginContainerRight{
     display: flex;
@@ -37,14 +29,10 @@
     right: 0;
     left:25%;
     bottom: 0;
-   
-
 }
 .rightImg{
    width: 100%;
-   object-fit: cover;
-    
-    
+   object-fit: cover;   
 }
 .loginHeading {
     margin: 5px;
@@ -62,7 +50,6 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }   
-
 input {
     display: block;
     border: 1px solid #ddd;
@@ -70,7 +57,6 @@ input {
     padding: 10px;
     border-radius: 4px;
 }
-
 input:focus {
     background: rgba(145, 145, 145, 0.2);
 }
@@ -83,7 +69,6 @@ input:focus {
     position: absolute;
     height: 20px;
 }
-
 .inputEmail input,
 .inputPassword input {
     padding-left: 36px;
@@ -91,8 +76,7 @@ input:focus {
 button {
     background: black;
     color: white;
-    padding: 10px;
-    
+    padding: 10px;   
     border-radius: 4px;
     cursor: pointer;
     border:none;

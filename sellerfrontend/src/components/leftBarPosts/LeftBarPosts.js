@@ -1,25 +1,21 @@
 import axios from 'axios'
 import React from 'react'
+import { PUBLIC_BASE } from '../../config'
 import "./leftBarPosts.css"
 export default function LeftBarPosts({ post }) {
-    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const deleteItem = async () => {
         try {
-
-
             const res = await axios.delete(`/admin/delete/${post._id}`)
             window.location.reload(true)
         } catch (err) {
             console.log(err)
         }
-
     }
-    console.log(post)
     const image = post.img[0];
     return (
         <div className="showProducts">
             <div className="productHead products">
-                <img className="productImg" src={image && PF + image} />
+                <img className="productImg" src={image && PUBLIC_BASE + "/images/" + image} />
                 <button className="deleteBtn" type='button' onClick={deleteItem}>Delete</button>
             </div>
             <div className='brandName products'>
@@ -46,8 +42,6 @@ export default function LeftBarPosts({ post }) {
                     {post.mrp} Rs
                 </span>
             </div>
-
-
             <div className='price products'>
                 <span className="productsHeading">
                     Selling Price :
@@ -72,10 +66,6 @@ export default function LeftBarPosts({ post }) {
                     {post.style}
                 </span>
             </div>
-
-
-
-
             <div className='price products'>
                 <span className="productsHeading">
                     Size And Fit :
@@ -84,7 +74,6 @@ export default function LeftBarPosts({ post }) {
                     {post.sizeAndFit}
                 </span>
             </div>
-
             <div className='price products'>
                 <span className="productsHeading">
                     Fit :
@@ -93,7 +82,6 @@ export default function LeftBarPosts({ post }) {
                     {post.fit}
                 </span>
             </div>
-
             <div className='price products'>
                 <span className="productsHeading">
                     Material & Care :
@@ -102,7 +90,6 @@ export default function LeftBarPosts({ post }) {
                     {post.materialAndCare}
                 </span>
             </div>
-
             <div className='price products'>
                 <span className="productsHeading">
                     Colour :
@@ -111,7 +98,6 @@ export default function LeftBarPosts({ post }) {
                     {post.color}
                 </span>
             </div>
-
             <div className='price products'>
                 <span className="productsHeading">
                     Print :
@@ -120,7 +106,6 @@ export default function LeftBarPosts({ post }) {
                     {post.print}
                 </span>
             </div>
-
             <div className='price products'>
                 <span className="productsHeading">
                     Sleeves :
@@ -129,8 +114,6 @@ export default function LeftBarPosts({ post }) {
                     {post.sleeve}
                 </span>
             </div>
-
-
             <div className='productType products'>
                 <span className="productsHeading">
                     For :
@@ -139,7 +122,6 @@ export default function LeftBarPosts({ post }) {
                     {post.productType}
                 </span>
             </div>
-
             <div className='quantity products'>
                 <span className="productsHeading">
                     Quantity :
@@ -172,10 +154,6 @@ export default function LeftBarPosts({ post }) {
                     {post.aboutProductLong}
                 </span>
             </div>
-
-
         </div>
-
-
     )
 }

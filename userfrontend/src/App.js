@@ -11,13 +11,9 @@ import BeautyCloset from "./pages/beautyCloset/BeautyCloset"
 import HomeLivingCloset from "./pages/homeLivingCloset/HomeLivingCloset"
 import PreviewProduct from "./pages/previewProduct/PreviewProduct"
 import WishList from "./pages/wishlist/WishList"
-import Bag from "./pages/bag/Bag"
-import Profile from "./pages/profile/Profile"
 import Address from "./pages/address/Address"
 import BagHandle from "./components/bagHandle/BagHandle"
 import Orders from "./pages/orders/Orders"
-
-
 function App() {
   const user = JSON.parse(localStorage.getItem('user'));
   return (
@@ -26,9 +22,6 @@ function App() {
         <Route exact path="/" element={user ? <HomePage /> : <Register />} />
         <Route exact path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route exact path="/register" element={user ? <Navigate to="/" /> : <Register />} />
-
-
-
         <Route path="/men" element={user ? <MenCloset /> : <Register />}></Route>
         <Route path="/women" element={user ? <WomenCloset /> : <Register />}></Route>
         <Route path="/kid" element={user ? <KidCloset /> : <Register />}></Route>
@@ -36,14 +29,12 @@ function App() {
         <Route path="/homeandliving" element={user ? <HomeLivingCloset /> : <Register />}></Route>
         <Route path="/buy/:type/:id" element={user ? <PreviewProduct /> : <Register />}></Route>
         <Route path="/kid" element={user ? <KidCloset /> : <Register />}></Route>
-        <Route path="/profile" element={user ? <Profile /> : <Register />}></Route>
         <Route path="/wishlist" element={user ? <WishList /> : <Register />}></Route>
         <Route path="/checkout/:cart" element={user ? <BagHandle /> : <Register />}></Route>
         <Route path="/checkout/:address" element={user ? <Address /> : <Register />}></Route>
         <Route path="/orders" element={user ? <Orders /> : <Register />}></Route>
       </Routes>
     </BrowserRouter>
-
   );
 }
 

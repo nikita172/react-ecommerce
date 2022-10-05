@@ -20,18 +20,16 @@ const userSchema = new mongoose.Schema(
     },
     wishlist: {
       type: Array,
-      default:[],
-      
+      default: [],
     },
     bag: {
       type: Array,
-      default:[],
+      default: [],
     },
-    orders:{
-      type:Array,
-      default:[]
+    orders: {
+      type: Array,
+      default: []
     }
-    
   },
   { timestamps: true }
 );

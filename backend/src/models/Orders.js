@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const orders = new mongoose.Schema(
     {
         userId: {
@@ -16,7 +15,6 @@ const orders = new mongoose.Schema(
             required: true,
             max: 50,
         }
-
     },
     { timestamps: true }
 );

@@ -7,12 +7,10 @@
     display: flex;
     flex: 4;
 }
-
 .leftBarWrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
 }
 .noProducts{
     margin-top: 50px;

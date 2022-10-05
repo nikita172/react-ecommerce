@@ -1,21 +1,18 @@
 .leftBarContainer{
     position: relative;
     top:80px;
-    flex:1.1;
-    
+    flex:1.1;   
 }
 .goToLinks{
     margin-bottom: 10px;
     color:#6d6d6d;
-    padding-left:30px;
-    
+    padding-left:30px;    
 }
 .itemTitle{
     font-weight: 600;
     padding-top: 20px;
     display: flex;
-    padding-left:30px;
-    
+    padding-left:30px;    
 }
 .itemTitle p{
     color:#6d6d6d;
@@ -23,9 +20,7 @@
 }
 .filterContainer{
     padding:20px 0px;
-    margin-top: 30px;
-    
-    
+    margin-top: 30px;   
 }
 .filterTitle{
     font-size: 1.1rem;
@@ -35,14 +30,12 @@
     border-bottom: 1px solid #eeebeb;
     padding-bottom: 10px;
 }
-
 .filterItem{
     padding-top: 20px;
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid #eeebeb;
     border-right: 1px solid #eeebeb;
-
     padding-left:30px;
 }
 .filterItem input{
@@ -52,7 +45,6 @@
     font-weight: 500;
     font-size: 1.1rem;
     margin-bottom: 10px;
-
 }
 .labels{
     display: flex;

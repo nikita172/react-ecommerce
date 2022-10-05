@@ -1,7 +1,6 @@
 const Merchant = require("../models/Merchant");
 const Product = require("../models/Product");
 const Orders = require("../models/Orders");
-
 const User = require("../models/User");
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken");
@@ -81,8 +80,6 @@ module.exports.addProduct = (async (req, res) => {
         const newProduct = new Product({
             merchantId: userId,
             img: req.files.map((f) => f.filename),
-
-
             quantity: req.body.sizeQuan ?
                 req.body.sizesQuan.reduce(function (passedIn, item) { return passedIn + parseInt(item) }, 0) :
                 null
@@ -124,14 +121,10 @@ module.exports.getMerchantAllProduct = (async (req, res) => {
 module.exports.deleteProduct = (async (req, res) => {
     const email = req.params.email
     const id = req.params.id
-
-    console.log(email, id)
     try {
-
         const product = await Product.findOne({ _id: id })
         await product.deleteOne()
         res.status(200).json({ message: "Product has been deleted" })
-
     }
     catch (err) {
         res.status(500).json(err)
@@ -266,7 +259,6 @@ module.exports.userSignUp = async (req, res) => {
 module.exports.addToWishlist = async (req, res) => {
     try {
         const user = await User.findOne({ email: req.params.email });
-        console.log(user)
         if (!user.wishlist.includes(req.body.productId)) {
             await user.updateOne({ $push: { wishlist: req.body.productId } });
             res.status(200).json({
@@ -428,15 +420,11 @@ module.exports.addNewAddress = (async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-
-
 })
 
 module.exports.getAddress = async (req, res) => {
-
     try {
         const userAdd = await UserAddress.find({ email: req.params.email });
-
         res.status(200).json(userAdd)
     } catch (err) {
         res.status(500).json(err);
@@ -457,25 +445,19 @@ module.exports.deleteAddress = (async (req, res) => {
 
 module.exports.getName = async (req, res) => {
     const { email } = req.params
-
-
     try {
         const user = await User.findOne({ email: email });
-
         res.status(200).json(user)
     } catch (err) {
         res.status(500).json(err);
     }
 }
 
-
 module.exports.searchText = async (req, res) => {
     const { text } = req.params
     const { type } = req.params
-
     try {
         const products = await Product.find({ productType: type });
-
         const prod = products.filter((val) => {
             if (val.brandName.toLowerCase().includes(text.toLowerCase())
                 || val.aboutProductLong.toLowerCase().includes(text.toLowerCase())
@@ -487,17 +469,12 @@ module.exports.searchText = async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-
 }
 
 module.exports.filterProducts = async (req, res) => {
-
     const brand = req.query.brand.split(",");
     const color = req.query.color.split(",");
-
     const type = req.query.type
-    console.log(brand, color)
-
     try {
         if (req.query.brand !== "" && req.query.color !== "") {
             const data1 = await Product.find({ productType: type, }).where('brandName').in(brand);
@@ -507,19 +484,15 @@ module.exports.filterProducts = async (req, res) => {
             const newArray = []
             data.map(element => {
                 const objId = element._id.toString()
-                console.log(objId)
                 if (filter.includes(objId)) {
-
                 } else {
                     filter.push(objId)
                     newArray.push(element)
                 }
             })
-            console.log(filter)
             res.status(200).json(newArray)
         } else if (req.query.brand === "" && req.query.color === "") {
             const data = await Product.find({ productType: type })
-
             res.status(200).json(data)
         }
         else if (req.query.brand === "") {
@@ -527,11 +500,8 @@ module.exports.filterProducts = async (req, res) => {
             res.status(200).json(data2)
         } else {
             const data = await Product.find({ productType: type, }).where('brandName').in(brand);
-
-
             res.status(200).json(data)
         }
-
     } catch (err) {
         console.log(err)
         res.status(500).json(err);
@@ -539,9 +509,7 @@ module.exports.filterProducts = async (req, res) => {
 }
 
 module.exports.addOrders = (async (req, res) => {
-
     const { email, addressId, productIds } = req.body;
-
     try {
         const user = await User.findOne({ email: email })
         const address = await UserAddress.findOne({ _id: addressId })
@@ -553,7 +521,6 @@ module.exports.addOrders = (async (req, res) => {
             })
             const saveAdd = await add.save();
         })
-
         res.status(200).json(
             {
                 message: "Order is Placed !",
@@ -564,14 +531,12 @@ module.exports.addOrders = (async (req, res) => {
         res.status(500).json(err);
     }
 })
+
 module.exports.deleteCart = (async (req, res) => {
     const { prodId, email } = req.params
     const Ids = prodId.split(",")
-
-    console.log(email, Ids)
     try {
         const user = await User.findOne({ email: email })
-
         Ids.map(async (i) => {
             if (user.bag.includes(i)) {
                 await user.updateOne({ $pull: { bag: i } });
@@ -586,7 +551,6 @@ module.exports.deleteCart = (async (req, res) => {
 
 module.exports.getAllOrders = async (req, res) => {
     const { email } = req.params;
-
     try {
         const user = await User.findOne({ email: email })
         const orders = await Orders.find({ userId: user._id }).populate("productsId")
@@ -598,7 +562,6 @@ module.exports.getAllOrders = async (req, res) => {
 
 module.exports.deleteOrder = async (req, res) => {
     const { id } = req.params;
-
     try {
         await Orders.deleteOne({ _id: id })
         res.status(200).json("Order deleted")
@@ -606,4 +569,3 @@ module.exports.deleteOrder = async (req, res) => {
         res.status(500).json(err);
     }
 }
-

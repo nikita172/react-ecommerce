@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import { CircularProgress } from "@material-ui/core"
 export default function MainBar() {
     const [loading, setLoading] = useState(false)
-
     const [menProducts, setMenProducts] = useState([])
     const [womenProducts, setWomenProducts] = useState([])
     const [kidProducts, setKidProducts] = useState([])
@@ -17,7 +16,6 @@ export default function MainBar() {
     let arr3 = [];
     let arr4 = [];
     let arr5 = [];
-
     if (menProducts.length > 6) {
         for (let i = 0; i < 6; i++) {
             arr.push(menProducts[i])
@@ -48,7 +46,6 @@ export default function MainBar() {
         }
         setHomeLivingProducts(arr5)
     }
-
     useEffect(() => {
         const fetchProducts = async () => {
             setLoading(true)
@@ -62,20 +59,15 @@ export default function MainBar() {
             const kidData = await kidPro.data;
             const beautyData = await beautyPro.data;
             const homeLivingData = await homeLivingPro.data;
-
             setMenProducts(menData)
             setWomenProducts(womenData)
             setKidProducts(kidData)
             setBeautyProducts(beautyData)
             setHomeLivingProducts(homeLivingData)
             setLoading(false)
-
-
         }
         fetchProducts()
     }, [])
-
-
     return (
         <div className='mainBarContainer'>
             <div className="mainBarWrapper">
@@ -92,7 +84,6 @@ export default function MainBar() {
                             </div>
                             <div className='headerRight'>
                                 <Link className="links" to="/men">
-
                                     <button className='viewAllBtn'>
                                         VIEW ALL
                                     </button>
@@ -106,14 +97,12 @@ export default function MainBar() {
                             <div className="headerBottom">
                                 {menProducts && menProducts.map(men => (
                                     <HomeProducts key={men._id} product={men} />
-
                                 ))
                                 }
                             </div>
                         }
                     </div>
                 </div>
-
                 <div className='bestOf'>
                     <div className='bestOfItems'>
                         <div className="headerTop">
@@ -140,16 +129,12 @@ export default function MainBar() {
                             <div className="headerBottom">
                                 {womenProducts && womenProducts.map(women => (
                                     <HomeProducts key={women._id} product={women} />
-
                                 ))
                                 }
                             </div>
                         }
                     </div>
                 </div>
-
-
-
                 <div className='bestOf'>
                     <div className='bestOfItems'>
                         <div className="headerTop">
@@ -176,7 +161,6 @@ export default function MainBar() {
                             <div className="headerBottom">
                                 {kidProducts && kidProducts.map(kid => (
                                     <HomeProducts key={kid._id} product={kid} />
-
                                 ))
                                 }
                             </div>
@@ -209,7 +193,6 @@ export default function MainBar() {
                             <div className="headerBottom">
                                 {beautyProducts && beautyProducts.map(beauty => (
                                     <HomeProducts key={beauty._id} product={beauty} />
-
                                 ))
                                 }
                             </div>
@@ -242,17 +225,12 @@ export default function MainBar() {
                             <div className="headerBottom">
                                 {homeLivingProducts && homeLivingProducts.map(data => (
                                     <HomeProducts key={data._id} product={data} />
-
                                 ))
                                 }
                             </div>
                         }
                     </div>
                 </div>
-
-
-
-
             </div>
         </div>
     )

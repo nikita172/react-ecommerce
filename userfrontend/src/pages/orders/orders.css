@@ -4,13 +4,11 @@
     justify-content: center;
     padding-top: 90px;
 }
-
 .orderEmptyMsg{
     display: flex;
     align-items: center;
    justify-content: center;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
 .orderEmpty{
     display: flex;

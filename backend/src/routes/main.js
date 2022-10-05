@@ -4,7 +4,6 @@ const admin = require("./admin")
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
-
 router.get('/', (req, res) => {
     res.send("Welcome to Learnin API")
 })

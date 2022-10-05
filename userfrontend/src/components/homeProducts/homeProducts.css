@@ -1,29 +1,20 @@
-
 .headerBottomDetails{
     padding:0px 20px;
-    width: 200px;
-    
+    width: 200px;   
 }
-.prodImg{
-    
+.prodImg{   
     width:150px ;
     height:150px ;
-    object-fit: cover;
-    
-  
-    
+    object-fit: cover;    
 }
 .headerBottom{
     overflow-x: auto;
 }
-
 .productDesc h5{
     font-weight:500;
     padding-top:10px;
     display: flex;
-    flex-wrap: wrap;
-    
-   
+    flex-wrap: wrap;   
 }
 .productDesc p{
     padding-top:5px;

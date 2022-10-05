@@ -4,8 +4,7 @@
 }
 .leftBarFeed{
     display: flex;
-    flex: 5;
-   
+    flex: 5;  
 }
 .rightBarFeed{
     display: flex;

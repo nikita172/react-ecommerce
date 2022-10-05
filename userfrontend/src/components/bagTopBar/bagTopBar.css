@@ -2,20 +2,16 @@
     height: 80px; 
     border-bottom: 0.5px solid #efececac;
     display: flex;
-    
-
 }
 .bagTop{
     display: flex;
     align-items: center;
     padding: 0px 60px;
-    width: 100%;
-    
+    width: 100%;    
 }
 .bagTopLeft, .bagTopRight, .bagTopMiddle{
     display: flex;
-    flex: 2;
-    
+    flex: 2;    
 } 
 .bagTopLeft{
     display: flex;

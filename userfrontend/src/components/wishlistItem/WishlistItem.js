@@ -2,6 +2,7 @@ import React from 'react'
 import axios from "axios"
 import { useState } from "react"
 import ErrorMsg from "../errorMsg/ErrorMsg"
+import { PUBLIC_BASE } from '../../config'
 export default function WishlistItem({ item, deleteWishlist, userEmail, change, setChange }) {
     const [msg, setMsg] = useState("")
     const [isMsg, setIsMsg] = useState(false)
@@ -15,7 +16,6 @@ export default function WishlistItem({ item, deleteWishlist, userEmail, change, 
             setTimeout(() => {
                 setIsMsg(false)
             }, 2000)
-            
             setChange(!change)
         }
         catch (err) {
@@ -25,18 +25,16 @@ export default function WishlistItem({ item, deleteWishlist, userEmail, change, 
     const id = item._id
     return (
         <>
-        <div className="wishListProducts">
-            <img className='wishListProductImg' alt="productImg" src={`http://localhost:8080/images/${item.img[0]}`} />
-            <button className='removeBtn' onClick={() => { deleteWishlist(id, userEmail) }}>X</button>
-            <p className="wishListDesc">
-                {item.aboutProductShort}
-            </p>
-            <p className='wishListPrice'>₹ {item.sellingPrice}</p>
-            <button className='movetobagBtn' onClick={addToBag}>MOVE TO BAG</button>
-           
-        </div>
-        {isMsg ? <ErrorMsg error={msg} /> : null}
+            <div className="wishListProducts">
+                <img className='wishListProductImg' alt="productImg" src={`${PUBLIC_BASE}/images/${item.img[0]}`} />
+                <button className='removeBtn' onClick={() => { deleteWishlist(id, userEmail) }}>X</button>
+                <p className="wishListDesc">
+                    {item.aboutProductShort}
+                </p>
+                <p className='wishListPrice'>₹ {item.sellingPrice}</p>
+                <button className='movetobagBtn' onClick={addToBag}>MOVE TO BAG</button>
+            </div>
+            {isMsg ? <ErrorMsg error={msg} /> : null}
         </>
-
     )
 }

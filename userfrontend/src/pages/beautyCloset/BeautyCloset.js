@@ -30,10 +30,7 @@ export default function BeautyCloset() {
           </div>
         </div>
         <RightBar loading={loading} products={products} setProducts={setProducts} />
-
       </div>
-
-
     </>
   )
 }

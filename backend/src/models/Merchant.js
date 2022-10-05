@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const merchantSchema = new mongoose.Schema(
   {
     userName: {
@@ -8,9 +7,9 @@ const merchantSchema = new mongoose.Schema(
       min: 3,
     },
     brandName: {
-        type: String,
-        require: false,
-      },
+      type: String,
+      require: false,
+    },
     email: {
       type: String,
       required: true,
@@ -22,7 +21,6 @@ const merchantSchema = new mongoose.Schema(
       required: true,
       min: 6,
     },
-    
   },
   { timestamps: true }
 );

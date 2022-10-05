@@ -24,9 +24,6 @@ export default function KidCloset() {
         <LeftBar setProducts={setProducts} products={products} type={kid} loading={loading} setLoading={setLoading} />
         <RightBar loading={loading} products={products} setProducts={setProducts} setLoading={setLoading} />
       </div>
-
-
     </>
   )
 }
-

@@ -10,28 +10,23 @@
     height: fit-content;
     width: 500px;
 }
-
 .productHead {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
 .productImg {
     height: 70px;
     width:40px;
     object-fit: cover;
 }
-
 .deleteBtn {
     padding: 5px 8px;
     font-size: 15px;
 }
-
 .products {
     margin-top: 5px;
 }
-
 .productsHeading {
     font-size: 17px;
     font-weight: 500;

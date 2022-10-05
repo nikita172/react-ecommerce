@@ -4,7 +4,6 @@ import "./wishList.css"
 import axios from "axios"
 import { CircularProgress } from "@material-ui/core"
 import WishlistItem from '../../components/wishlistItem/WishlistItem'
-
 export default function WishList() {
     const [fetching, isFetching] = useState(true)
     const [change, setChange] = useState(0);
@@ -15,7 +14,6 @@ export default function WishList() {
         const fetchWishlist = async () => {
             isFetching(true)
             const res = await axios.get(`/user/wishlistitem/${userEmail}`)
-
             setWishlistItem(res.data)
             isFetching(false)
         }
@@ -28,7 +26,6 @@ export default function WishList() {
             const res = await axios.put(`/user/delete/wishlistitem/${userEmail}`, {
                 productId: id,
             });
-
             setChange(!change);
             isFetching(false)
         }

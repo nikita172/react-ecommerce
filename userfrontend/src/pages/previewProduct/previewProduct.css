@@ -1,27 +1,18 @@
 .previewProduct {
     padding-top: 80px;
     display: flex;
-
-
 }
-
 .previewProductLeft {
     padding: 30px 30px;
     display: flex;
     flex: 1;
     justify-content: center;
-
 }
-
 .productImages {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-
-
 }
-
 .productImage {
     display: flex;
     padding-right: 20px;
@@ -30,21 +21,16 @@
     max-height: 500px;
     object-fit: cover;
 }
-
 .previewProductRight {
     display: flex;
     flex: 1;
-
     padding: 30px 20px;
     flex-direction: column;
 }
-
 .name {
     font-weight: 500;
     margin-bottom: 10px;
-
 }
-
 .productDesc {
     font-size: 19px;
     color: gray;
@@ -52,56 +38,42 @@
     padding-bottom: 15px;
     font-weight: 300;
 }
-
 .mrpDiv {
     display: flex;
     padding-top: 15px;
-
 }
-
 .productPrice {
     color: rgb(41, 36, 36);
     font-weight: 500;
     letter-spacing: -1px;
 }
-
 .mrp {
-
     padding: 0 15px;
     display: flex;
 }
-
 .mrpTag,
 .actualPrice {
     font-weight: 300;
     color: rgb(93, 92, 92);
 }
-
 .discount {
-
     color: #FF3366;
 }
-
 .mrpTag {
     padding-right: 4px;
 }
-
 .actualPrice {
     text-decoration: line-through;
-
 }
-
 .taxesInfo {
     color: green;
     letter-spacing: -1px;
     padding-top: 10px;
 }
-
 .size {
     padding: 15px 0px;
     font-weight: normal;
 }
-
 .smallSizeButton {
     font-weight: bold;
     background: white;
@@ -111,12 +83,10 @@
     border-radius: 50%;
     border: 1px solid gray;
 }
-
 .smallSizeButton:hover {
     color: #FF3366;
     border-color: #FF3366;
 }
-
 .xlSizeButton {
     font-weight: bold;
     background: white;
@@ -126,19 +96,16 @@
     border-radius: 50%;
     border: 1px solid gray;
 }
-
 .xlSizeButton:hover {
     color: #FF3366;
     border-color: #FF3366;
 }
-
 .addTo {
     padding-top: 25px;
     display: flex;
     padding-bottom: 15px;
     border-bottom: 1px solid rgb(230, 228, 228);
 }
-
 .addToBtn {
     font-weight: normal;
     background: white;
@@ -147,45 +114,33 @@
     display: flex;
     align-items: center;
     font-size: 18px;
-
-
-
 }
-
 .addToBagButton {
     padding: 15px 50px;
     background: #FF3366;
     color: white;
-
-
 }
-
 .wishlistButton {
     border: 1px solid rgb(183, 182, 182);
     padding: 15px 40px;
 }
-
 .addToIcon {
     margin-right: 5px;
 }
-
 .productDetails {
     margin-bottom: 10px;
 }
-
 .detailHeading {
     padding-top: 15px;
     padding-bottom: 20px;
     font-weight: normal;
 }
-
 .detailPara {
     font-weight: 300;
     font-size: 17px;
     color: rgb(91, 88, 88);
     width: 600px;
 }
-
 .alreadyAddedToWishlist {
     color: white;
     font-weight: normal;
@@ -196,9 +151,7 @@
     align-items: center;
     font-size: 18px;
 }
-
 .alreadyAddedToCart {
-
     color: white;
     font-weight: normal;
     background: #FF3366;
@@ -207,5 +160,4 @@
     display: flex;
     align-items: center;
     font-size: 18px;
-
 }

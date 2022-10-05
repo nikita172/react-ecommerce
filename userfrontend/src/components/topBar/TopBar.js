@@ -7,13 +7,11 @@ import { Search, PermIdentity, FavoriteBorder, LocalMallOutlined } from '@materi
 export default function TopBar({ products, setProducts, type = "all" }) {
   const [searchTerm, setSearchTerm] = useState("")
   const [openModal, setOpenModal] = useState(false)
-
   const user = JSON.parse(localStorage.getItem("user"))
   const userEmail = user[1]
   const [name, setName] = useState({});
   const closeMenuHandler = () => {
     setOpenModal(false)
-
   }
   useEffect(() => {
     document.addEventListener("click", closeMenuHandler)
@@ -23,24 +21,19 @@ export default function TopBar({ products, setProducts, type = "all" }) {
     const fetchUsername = async () => {
       const res = await axios.get(`/user/username/${userEmail}`)
       setName(res.data);
-
     }
     fetchUsername()
   }, [])
   const isWishlist = window.location.pathname.search("wishlist") > -1;
   useEffect(() => {
-
     const fetchSearchItem = async () => {
       if (isWishlist) {
         return
       }
-
       if (searchTerm.length != 0) {
         const res = await axios.get(`/user/search/${type}/${searchTerm}`)
         setProducts(res.data);
-
       } else {
-
         const res = await axios.get(`/admin/${type.toLowerCase()}/products`)
         setProducts(res.data)
       }
@@ -48,17 +41,12 @@ export default function TopBar({ products, setProducts, type = "all" }) {
     fetchSearchItem()
   }, [searchTerm])
   const handleLogout = () => {
-    localStorage.clear()
+    localStorage.removeItem("user")
     window.location.reload(true)
   }
-
-
   const openProfile = (e) => {
-
     e.stopPropagation()
     setOpenModal(!openModal)
-
-
   }
   return (
     <div className='topBarContainer'>
@@ -85,46 +73,34 @@ export default function TopBar({ products, setProducts, type = "all" }) {
               }} />
           </div>}
         <div className="shopContainer">
-
-
           <div className="userInfoLink"  >
             <button className="userInfoLink profile" type="button" onClick={openProfile}>
               <PermIdentity />
               <span>Profile</span>
             </button>
-
           </div>
-
-
-
           <Link to="/wishlist" className='links'>
             <div className="userInfoLink">
               <FavoriteBorder />
               <span>Wishlist</span>
             </div>
           </Link>
-
           <Link to="/checkout/cart" className='links'>
             <div className="userInfoLink">
               <LocalMallOutlined />
               <span>Bag</span>
             </div>
           </Link>
-
         </div>
-
         <div onClick={(e) => e.stopPropagation()} className={openModal ? "profileContainer" : "hide"}>
-
           <p className='helloTag'>Hello {name && name.userName} !</p>
           <ul className='profileItems'>
             <Link to="/orders" className="links" style={{ color: "black" }}>
               <li className='listItem'>Orders</li>
             </Link>
-
             <Link to="/wishlist" style={{ textDecoration: "none", color: "black" }}>
               <li className='listItem'>Wishlist</li>
             </Link>
-
             <Link to="/checkout/cart" style={{ textDecoration: "none", color: "black" }}>
               <li className='listItem'>Cart</li>
             </Link>
@@ -132,13 +108,8 @@ export default function TopBar({ products, setProducts, type = "all" }) {
               <button className='logoutBtn' onClick={handleLogout}>Logout</button>
             </li>
           </ul>
-
         </div>
-
-
-
       </div>
-
     </div>
   )
 }

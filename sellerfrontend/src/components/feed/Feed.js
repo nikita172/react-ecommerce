@@ -8,14 +8,7 @@ export default function Feed({ productOpen, setProductOpen }) {
             <div className='leftBarFeed'>
                 <LeftBarFeed />
             </div>
-            
-                {productOpen ?<div className='rightBarFeed'> <RightBarFeed productOpen={productOpen} setProductOpen={setProductOpen} /></div> : null}
-            </div>
-
-
-
-
-
-        
+            {productOpen ? <div className='rightBarFeed'> <RightBarFeed productOpen={productOpen} setProductOpen={setProductOpen} /></div> : null}
+        </div>
     )
 }

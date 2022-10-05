@@ -1,12 +1,5 @@
 import React, { useEffect } from 'react'
-
 export default function AddressInfo({ address }) {
-    /* const handleRemove = ()=>{
-         useEffect(()=>{
-             const res = axios.delete("/user/address/delete" , address)
-         })
-     }*/
-
     return (
         <div className="address">
             <input type="radio" className='selectDefault' name="add" id="uni" checked={true} />
@@ -22,7 +15,6 @@ export default function AddressInfo({ address }) {
                 <div>
                     <button className="addnewAddBtn">Remove</button>
                     <button className="addnewAddBtn editBtn">Edit</button>
-
                 </div>
             </label>
         </div>

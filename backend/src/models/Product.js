@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const productSchema = new mongoose.Schema(
   {
     brandName: {
@@ -27,7 +26,6 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-
     quantity: {
       type: Number,
       required: false,
@@ -91,4 +89,5 @@ const productSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
 module.exports = mongoose.model("Product", productSchema);

@@ -3,7 +3,6 @@ import "./rightBarFeed.css"
 import axios from "axios";
 import { useState } from "react"
 export default function RightBarFeed({ productOpen, setProductOpen }) {
-
     const [categories, setCategories] = useState("")
     const size = !(categories === "HomeLiving" || categories === "Beauty")
     const closeProductDetail = () => {
@@ -11,20 +10,17 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
             setProductOpen(false)
         }
     }
-
     const handleSubmitForm = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const userEmail = JSON.parse(localStorage.getItem('user'))
+        const userEmail = JSON.parse(localStorage.getItem('admin'))
         formData.append("email", userEmail[1])
-
         try {
             await axios.post("/admin/product", formData)
             window.location.reload(true)
         } catch (err) {
             console.log(err)
         }
-
     }
     return (
         <div className='rightBarFeedContainer'>
@@ -34,8 +30,6 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                         <h3 className='productDetailheading'>Enter Product Details</h3>
                         <button type="button" onClick={closeProductDetail} className="crossButton">X</button>
                     </div>
-
-
                     <div className="productType">
                         <h5>Select Category*</h5>
                         <div className="details">
@@ -46,8 +40,6 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                                 <option value="Kid">Kid</option>
                                 <option value="Beauty">Beauty</option>
                                 <option value="HomeLiving">Home & Living</option>
-
-
                             </select>
                         </div>
                     </div>
@@ -59,19 +51,14 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                         <h5>Company Name*</h5>
                         <input className='productInputs' type="text" name="companyName" placeholder="Company Name" required />
                     </div>
-
-
-
                     <div className="desc">
                         <h5>About Product*</h5>
                         <input className='productInputs' maxLength="50" type="text" name="aboutProductShort" placeholder="Desc" required />
                     </div>
-
                     <div className="longDesc">
                         <h5>More Detail About Product*</h5>
                         <input className='productInputs' type="text" name="aboutProductLong" placeholder="More Desc" required />
                     </div>
-
                     <div className={size ? "sizes" : "hideSize"}  >
                         <h5>Sizes*</h5>
                         <div className='sizeBox'>
@@ -85,23 +72,18 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                             <input className='productInputs sizeInput' type="number" name="sizesQuan" placeholder="XL Size" />
                         </div>
                     </div>
-
-
                     <div className="style">
                         <h5>Style*</h5>
                         <input className='productInputs' type="text" name="style" placeholder="Style" required />
                     </div>
-
                     <div className="sleeve">
                         <h5>Sleeve*</h5>
                         <input className='productInputs' type="text" name="sleeve" placeholder="Sleeve" required />
                     </div>
-
                     <div className="colour">
                         <h5>Colour*</h5>
                         <input className='productInputs' type="text" name="color" placeholder="Colour" required />
                     </div>
-
                     <div className="print">
                         <h5>Print*</h5>
                         <input className='productInputs' type="text" name="print" placeholder="Print" required />
@@ -110,22 +92,18 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                         <h5>Fit*</h5>
                         <input className='productInputs' type="text" name="fit" placeholder="Fit" required />
                     </div>
-
                     <div className="SizeAndFit">
                         <h5>Size And Fit*</h5>
                         <input className='productInputs' type="text" name="sizeAndFit" placeholder="Size And Fit" required />
                     </div>
-
                     <div className="material">
                         <h5>Material And Care*</h5>
                         <input className='productInputs' type="text" name="materialAndCare" placeholder="Material And Care" required />
                     </div>
-
                     <div className="actualPrice">
                         <h5>MRP*</h5>
                         <input className='productInputs' type="number" name="mrp" placeholder="Price" required />
                     </div>
-
                     <div className="discount">
                         <h5>Discount in %*</h5>
                         <input className='productInputs' type="number" name="discount" placeholder="Discount" required />
@@ -134,9 +112,6 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                         <h5>Selling Price*</h5>
                         <input className='productInputs' type="number" name="sellingPrice" placeholder="Selling Price" required />
                     </div>
-
-
-
                     <div className="addPhotos" >
                         <h5>Add Photos of Product*</h5>
                         <input type="file" name="file[]" required accept=".jpeg, .png, .jpg ,.avif , .webp, .jfif"
@@ -149,11 +124,9 @@ export default function RightBarFeed({ productOpen, setProductOpen }) {
                         />
                         <input type="file" name="file[]" accept=".jpeg, .png, .jpg ,.avif , .webp , .jfif"
                         />
-
                     </div>
                     <button id="addButton" type="submit">Add</button>
                 </form>
-
             </div>
         </div>
     )

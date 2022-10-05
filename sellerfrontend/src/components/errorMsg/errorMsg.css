@@ -11,8 +11,7 @@
     color:white;
     font-size: 20px;
     transition: height;
-    animation: openModal 1s alternate ;
-    
+    animation: openModal 1s alternate ;   
 }
 @keyframes openModal {
     0% {

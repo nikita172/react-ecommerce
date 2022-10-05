@@ -12,7 +12,6 @@ export default function Login() {
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState("");
     const [isError, setIsError] = useState(false)
-
     const handleClick = async (e) => {
         setIsFetching(true)
         e.preventDefault()
@@ -22,7 +21,6 @@ export default function Login() {
         }
         try {
             const res = await axios.post("/user/login", user)
-            console.log(res)
             if (!res.data.status) {
                 setIsError(true)
                 setTimeout(() => {
@@ -33,7 +31,6 @@ export default function Login() {
                 const info = [res.data.token, res.data.user.email]
                 localStorage.setItem('user', JSON.stringify(info))
                 window.location.reload(true)
-
             }
             setError(res.data.message)
         }
@@ -61,21 +58,14 @@ export default function Login() {
                             <button type="submit" className="primary" id="loginBtn" disabled={isFetching}>
                                 {isFetching ? <CircularProgress color="white" size="12px" /> : "LogIn"}
                             </button>
-                            
-
-
-
-
                         </div>
                     </form>
                 </div>
                 <div className="loginContainerRight">
                     <img className='rightImg' src="/assets/fastShop.jpg" />
                 </div>
-
                 {isError ? <ErrorMsg error={error} /> : null}
             </section>
         </div>
-
     )
 }

@@ -4,22 +4,17 @@
 }
 .products:hover{
     cursor: pointer;
-    box-shadow: 5px 5px 5px -2px rgba(232, 226, 226, 0.502);
-   
+    box-shadow: 5px 5px 5px -2px rgba(232, 226, 226, 0.502);   
 }    
-
 .brandName{
     font-weight: 700;
-    padding:5px 0px 0px 20px;
-
-    
+    padding:5px 0px 0px 20px;   
 }
 .productImg{
     
     width: 250px ;
     height: 350px;
-    object-fit: cover;
-    
+    object-fit: cover;    
 }
 .desc{
     display: flex;

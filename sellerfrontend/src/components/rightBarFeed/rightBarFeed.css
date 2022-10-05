@@ -7,21 +7,15 @@
     position: sticky;
     height: calc(100vh - 90px);
     padding:10px 25px;
-    font-size: 20px;
-    
-   
-   
-   
+    font-size: 20px;  
 }
 .hideSize{
     display: none;
 }
-
 .header{   
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    
+    justify-content: space-between;   
 }
 .crossButton {
     margin:0px;
@@ -31,13 +25,11 @@
     border-radius: 50%;
     border: 1px solid #d1c8c8;
     font-weight: 600;
-    font-size: large;
-    
+    font-size: large;    
 }
 .productDetailheading{
     margin-bottom: 10px;
-    margin-top: 10px;
-  
+    margin-top: 10px; 
 }
 #productDetailform div{
     margin-bottom: 15px;
@@ -55,17 +47,12 @@
 .productType div{
     display: flex;
     margin-bottom: 5px;
-
 }
-
-
-
 #cross-button{
     border-radius: 50%;
     background-color: white;
     padding:3px;
-    height: 20px;
-    
+    height: 20px;    
 }
 .details label{
     padding-bottom:5px;
@@ -77,9 +64,7 @@
     border-radius: 5px;
     border: 1px solid rgb(165, 162, 162);
     width:100%;
-    height: 35px;
-    
-    
+    height: 35px;   
 }
 .details{
     display: flex;
@@ -87,7 +72,6 @@
     flex: 1;
     margin-top: 5px;
 }
-
 #addButton{
     margin-top: 15px;
     background-color: rgb(15, 15, 192);

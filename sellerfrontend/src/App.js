@@ -2,24 +2,23 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Home from "./pages/home/Home";
-
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           exact
-          path="/"
+          path="/admin"
           element={
-            JSON.parse(localStorage.getItem("user")) ? <Home /> : <Register />
+            JSON.parse(localStorage.getItem("admin")) ? <Home /> : <Register />
           }
         />
         <Route
           exact
-          path="/login"
+          path="/admin/login"
           element={
-            JSON.parse(localStorage.getItem("user")) ? (
-              <Navigate to="/" />
+            JSON.parse(localStorage.getItem("admin")) ? (
+              <Navigate to="/admin" />
             ) : (
               <Login />
             )
@@ -27,10 +26,10 @@ function App() {
         />
         <Route
           exact
-          path="/register"
+          path="/admin/register"
           element={
-            JSON.parse(localStorage.getItem("user")) ? (
-              <Navigate to="/" />
+            JSON.parse(localStorage.getItem("admin")) ? (
+              <Navigate to="/admin" />
             ) : (
               <Register />
             )
@@ -40,5 +39,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;

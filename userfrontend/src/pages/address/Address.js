@@ -8,10 +8,8 @@ import { Clear } from '@material-ui/icons';
 import axios from "axios"
 import { Link } from "react-router-dom"
 import { CheckCircleOutline } from '@material-ui/icons';
-
 export default function Address() {
     const [loading, setLoading] = useState(false);
-
     const [openModal, setOpenModal] = useState(false)
     const [bagItem, setBagItem] = useState([])
     const [address, setAddress] = useState([])
@@ -28,17 +26,13 @@ export default function Address() {
         saveAddress: "",
         email: ""
     })
-
-    console.log(showOrderPlaced)
     const user = JSON.parse(localStorage.getItem("user"))
     const userEmail = user[1]
     let change = 0;
     useEffect(() => {
         const fetchBag = async () => {
-
             const res = await axios.get(`/user/bagitem/${userEmail}`)
             setBagItem(res.data)
-
         }
         fetchBag()
     }, [change]
@@ -67,7 +61,6 @@ export default function Address() {
             saveAddress: formData.get('saveAddress'),
             email: email
         }
-        console.log(formData)
         try {
             setLoading(true)
             await axios.post("/user/addnewaddress", data)
@@ -90,45 +83,31 @@ export default function Address() {
             email: ""
         })
     }
-
     const removeAddress = async (id) => {
         const res = await axios.delete(`/user/delete/address/${id}`)
         setAddress((oldAddress) => oldAddress.filter(a => a._id !== id))
-
     }
-
-
     const onInputChange = (e) => {
         setInputState((oldState) => {
-            console.log(oldState)
             const newState = {
                 ...oldState, [e.target.name]: e.target.value
             }
-            console.log(newState)
             return newState;
-
         })
-
     }
     useEffect(() => {
         if (!openModal) {
             resetState();
         }
-
     }, [openModal])
     const onEditClick = (address) => {
-        console.log(address)
         setInputState(address)
         setOpenModal(true)
     }
-    console.log(formRef.current.add)
     return (
         <>
-
             <div className={openModal ? "addModal" : showOrderPlaced ? "hideAddress" : 'addressContainer'}>
                 <BagTopBar />
-
-
                 <div className='addressWrapper'>
                     <div className="addressWrapperLeft">
                         <div className="addressDetailLeft">
@@ -138,7 +117,6 @@ export default function Address() {
                             </div>
                             <form ref={formRef}>
                                 {address && address.map(address => (
-
                                     <div className="address">
                                         <input type="radio" className='selectDefault' name="add" id="uni" checked={true} value={address._id} />
                                         <label for="uni">
@@ -151,9 +129,8 @@ export default function Address() {
                                                 <li className='note'>Only pay on delivery available</li>
                                             </ul>
                                             <div>
-                                                <button className="addnewAddBtn" type='click' onClick={() => removeAddress(address._id)}>Remove</button>
-                                                <button className="addnewAddBtn editBtn" onClick={() => onEditClick(address)}>Edit</button>
-
+                                                <button className="addnewAddBtn" type='button' onClick={() => removeAddress(address._id)}>Remove</button>
+                                                <button className="addnewAddBtn editBtn" type='button' onClick={() => onEditClick(address)}>Edit</button>
                                             </div>
                                         </label>
                                     </div>
@@ -167,7 +144,6 @@ export default function Address() {
                     </div>
                     <AddressRightBar bagItem={bagItem} form={formRef} email={userEmail} setShowOrderPlaced={setShowOrderPlaced} />
                 </div>
-
             </div>
             <div className={openModal ? "show" : 'addAddressContainer'}>
                 <div className="addAddressWrapper">
@@ -210,8 +186,6 @@ export default function Address() {
                     </form>
                 </div>
             </div>
-
-
             <div className={showOrderPlaced ? "emptyBar" : "hideOrderComfirmed"}>
                 <CheckCircleOutline style={{ color: "rgb(7, 199, 7)", fontSize: "150px" }} />
                 <p className='orderPlaced'>Order Placed !</p>
@@ -222,7 +196,6 @@ export default function Address() {
                     <button className='goToHomeBtn'>CHECK YOUR ORDERS </button>
                 </Link>
             </div>
-
         </>
     )
 }

@@ -19,7 +19,6 @@ export default function HomeLivingCloset() {
   }, [])
   return (
     <>
-
       <TopBar products={products} setProducts={setProducts} type={homeLiving} />
       <div className='menClosetContainer' style={{ display: "flex", flexDirection: "column" }}>
         <div className='leftBarContainer' >
@@ -30,12 +29,8 @@ export default function HomeLivingCloset() {
             </div>
           </div>
         </div>
-
         <RightBar loading={loading} products={products} setProducts={setProducts} />
-
       </div>
-
-
     </>
   )
 }

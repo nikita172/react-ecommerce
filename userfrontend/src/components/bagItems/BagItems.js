@@ -1,18 +1,16 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-export default function BagItems({ item, deleteBagItem,userEmail }) {
-const id = item._id
-
-   
+import { PUBLIC_BASE } from '../../config'
+export default function BagItems({ item, deleteBagItem, userEmail }) {
+  const id = item._id
   return (
     <>
-
       <div className='orders'>
-        <button className="orderDeleteBtn" onClick={()=>{deleteBagItem(id,userEmail)}}>X</button>
+        <button className="orderDeleteBtn" onClick={() => { deleteBagItem(id, userEmail) }}>X</button>
         <Link to={`/buy/${item.productType}/${item._id}`} className="links">
-        <div className="ordersLeft">
-          <img className='imageLeft' src={"http://localhost:8080/images/" + item.img[0]} />
-        </div>
+          <div className="ordersLeft">
+            <img className='imageLeft' src={PUBLIC_BASE + "/images/" + item.img[0]} />
+          </div>
         </Link>
         <div className="ordersRight">
           <p className='orderBrandName'>{item.brandName}</p>
@@ -49,9 +47,7 @@ const id = item._id
             <h4 className='productDiscount'>({item.discount} % OFF)</h4>
           </div>
         </div>
-     
-    </div>
-      
+      </div>
     </>
   )
 }

@@ -37,9 +37,7 @@
     padding:10px;
     text-decoration: none;
     color:#6d6d6d;
- 
 }
-
 .searchBar{
     display: flex;
     flex: 2;
@@ -62,8 +60,7 @@
     display: flex;
     flex: 1;
     justify-content: center;
-    align-items: center;
-   
+    align-items: center;  
 }
 .userInfoLink{
     display: flex;
@@ -73,8 +70,7 @@
     margin:auto 10px;
     color:gray;
     background: white;
-    padding: 0;
-    
+    padding: 0;   
 }
 .userInfoLink span{
     font-size: small;
@@ -84,12 +80,10 @@
 }
 .links{
     text-decoration: none;
-    color: #171414ac;
-    
+    color: #171414ac;    
 }
 .profile:hover .profileContainer{
-    display: flex;
-    
+    display: flex;   
 }
 .profileContainer{
     padding:20px;
@@ -106,8 +100,7 @@
 }
 .helloTag{
     padding:10px 0px;
-    border-bottom: 1px solid rgb(226, 226, 226);
-   
+    border-bottom: 1px solid rgb(226, 226, 226);  
     font-weight: 500;
 }
 .profileItems{

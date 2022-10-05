@@ -18,8 +18,7 @@ const userAddress = new mongoose.Schema(
     },
     mobile: {
       type: Number,
-      required:true,
-      
+      required: true,
     },
     name: {
       type: String,
@@ -45,7 +44,6 @@ const userAddress = new mongoose.Schema(
       required: true,
       max: 50,
     },
-    
   },
   { timestamps: true }
 );

@@ -25,7 +25,6 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }   
-
 input {
     display: block;
     border: 1px solid #ddd;
@@ -33,7 +32,6 @@ input {
     padding: 10px;
     border-radius: 4px;
 }
-
 input:focus {
     background: rgba(145, 145, 145, 0.2);
 }
@@ -46,7 +44,6 @@ input:focus {
     position: absolute;
     height: 20px;
 }
-
 .inputEmail input,
 .inputPassword input {
     padding-left: 36px;

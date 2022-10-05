@@ -15,7 +15,6 @@ export default function Bag() {
   const user = JSON.parse(localStorage.getItem("user"))
   const userEmail = user[1]
   useEffect(() => {
-
     const fetchBag = async () => {
       isFetching(true)
       const res = await axios.get(`/user/bagitem/${userEmail}`)
@@ -25,8 +24,6 @@ export default function Bag() {
     fetchBag()
   }, [change]
   )
-
-
   const deleteBagItem = async (id, userEmail) => {
     isFetching(true)
     try {
@@ -40,7 +37,6 @@ export default function Bag() {
       console.log(err)
     }
   }
-  console.log(bagItem)
   return (
     <div className='bagContainer'>
       <BagTopBar />
@@ -49,7 +45,6 @@ export default function Bag() {
           <div className="bagDetailWrapperLeft">
             <div className='bagDetailsLeft'>
               <p className='itemSelect'>{bagItem.length} ITEMS SELECTED</p>
-
               {bagItem && bagItem.map((item) => (
                 <BagItems key={item._id} item={item} deleteBagItem={deleteBagItem} userEmail={userEmail} />
               ))}
@@ -65,8 +60,6 @@ export default function Bag() {
               <button className='bagSectionBtn'>ADD ITEMS FROM WISHLIST</button>
             </Link>
           </div>
-
-
         </div>}
     </div>
   )
