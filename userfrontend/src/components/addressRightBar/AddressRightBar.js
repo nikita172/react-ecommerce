@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import axios from "axios"
 import { CircularProgress } from "@material-ui/core"
 export default function AddressRightBar({ bagItem, form, email, setShowOrderPlaced }) {
+  console.log(bagItem)
   const [fetching, isFetching] = useState(false)
   const products = [];
   let totalMrp = 0;
@@ -11,7 +11,7 @@ export default function AddressRightBar({ bagItem, form, email, setShowOrderPlac
   let totalPrice = 0;
   for (let i = 0; i < bagItem.length; i++) {
     totalMrp += bagItem[i].mrp;
-    totalPrice += bagItem[i].sellingPrices
+    totalPrice += bagItem[i].sellingPrice
     products.push(bagItem[i]._id)
   }
   totalDiscount = totalMrp - totalPrice
